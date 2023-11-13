@@ -13,6 +13,7 @@ export class CreateDataComponent implements OnInit {
   googleSheetForm!: FormGroup;
   owners = ['20D','BR','Da']//`${environment.owners}`;
   storages = ['Dispensa','Frigorifico','Congelador']//`${environment.owners}`;
+  buttonActive: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,7 +35,8 @@ export class CreateDataComponent implements OnInit {
   ngOnInit() {}
 
   public save(close: boolean) {
-    console.log(this.googleSheetForm.value);
+    
+    this.buttonActive = false;
 
     const name = this.googleSheetForm.value.name;
     const number = this.googleSheetForm.value.number;
@@ -54,10 +56,12 @@ export class CreateDataComponent implements OnInit {
           } else {
             this.googleSheetForm.reset();
           }
+          this.buttonActive = true;
         }
       },
       error: (error) => {
         console.log(error);
+        this.buttonActive = true;
       },
     });
   }

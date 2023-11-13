@@ -52,8 +52,8 @@
       <input type="text" class="form-control" id="comment" placeholder="comment" formControlName="comment">
     </div>
 
-    <button class="btn btn-success mt-3" (click)="save(true)">Submit And Close</button>
-    <button class="btn btn-success mt-3" (click)="save(false)">Submit And Reset</button>
+    <button class="btn btn-success mt-3" [disabled]="!buttonActive" (click)="save(true)">Submit And Close</button>
+    <button class="btn btn-success mt-3" [disabled]="!buttonActive" (click)="save(false)">Submit And Reset</button>
 
   </form>
 </div>
