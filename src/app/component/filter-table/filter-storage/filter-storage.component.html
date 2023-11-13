@@ -1,0 +1,11 @@
+<div class="form-group">
+    <strong>Storage</strong>
+    <select class="form-control"
+            name="storage"
+            [(ngModel)]="storage"
+            (ngModelChange)="detectChange($event)">
+      <option></option>      
+      <option *ngFor="let storage of storages"
+              [value]="storage">{{ storage }}</option>
+    </select>
+  </div>  

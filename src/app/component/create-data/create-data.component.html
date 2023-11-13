@@ -1,0 +1,59 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="btn btn-primary" routerLink="/list-data">Home</button>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <form [formGroup]="googleSheetForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="name" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="number" class="form-label">Number</label>
+      <input type="text" class="form-control" id="number" placeholder="number" formControlName="number">
+    </div>
+
+    <div class="mb-3">
+      <label for="amount" class="form-label">amount</label>
+      <input type="text" class="form-control" id="amount" placeholder="amount" formControlName="amount">
+    </div>
+
+    <div class="mb-3">
+      <label for="placeOfStorage" class="form-label">placeOfStorage</label>
+      <select class="form-control" name="placeOfStorage" formControlName="placeOfStorage">
+        <option></option>
+        <option *ngFor="let placeOfStorage of storages" [value]="placeOfStorage">{{ placeOfStorage }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="weight" class="form-label">weight</label>
+      <input type="text" class="form-control" id="weight" placeholder="weight" formControlName="weight">
+    </div>
+
+    <div class="mb-3">
+      <label for="validationDate" class="form-label">validationDate</label>
+      <input type="text" class="form-control" id="validationDate" placeholder="validationDate"
+        formControlName="validationDate">
+    </div>
+
+    <div class="mb-3">
+      <label for="owner" class="form-label">owner</label>
+      <select class="form-control" name="owner" formControlName="owner">
+        <option></option>
+        <option *ngFor="let owner of owners" [value]="owner">{{ owner }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">comment</label>
+      <input type="text" class="form-control" id="comment" placeholder="comment" formControlName="comment">
+    </div>
+
+    <button class="btn btn-success mt-3" (click)="save(true)">Submit And Close</button>
+    <button class="btn btn-success mt-3" (click)="save(false)">Submit And Reset</button>
+
+  </form>
+</div>
